@@ -3,15 +3,17 @@ package dto
 import (
 	"time"
 
-	"github.com/joaodematejr/imersao22/go-gateway/internal/domain"
+	"github.com/devfullcycle/imersao22/go-gateway/internal/domain"
 )
 
+// CreateAccountInput representa dados para criação de conta
 type CreateAccountInput struct {
 	Name  string `json:"name"`
 	Email string `json:"email"`
 }
 
-type AccountOutputDTO struct {
+// AccountOutput representa dados da conta nas respostas da API
+type AccountOutput struct {
 	ID        string    `json:"id"`
 	Name      string    `json:"name"`
 	Email     string    `json:"email"`
@@ -21,12 +23,14 @@ type AccountOutputDTO struct {
 	UpdatedAt time.Time `json:"updated_at"`
 }
 
+// ToAccount converte CreateAccountInput para domain.Account
 func ToAccount(input CreateAccountInput) *domain.Account {
 	return domain.NewAccount(input.Name, input.Email)
 }
 
-func FromAccount(account *domain.Account) AccountOutputDTO {
-	return AccountOutputDTO{
+// FromAccount converte domain.Account para AccountOutput
+func FromAccount(account *domain.Account) AccountOutput {
+	return AccountOutput{
 		ID:        account.ID,
 		Name:      account.Name,
 		Email:     account.Email,

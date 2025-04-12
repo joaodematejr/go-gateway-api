@@ -3,10 +3,10 @@ package server
 import (
 	"net/http"
 
+	"github.com/devfullcycle/imersao22/go-gateway/internal/service"
+	"github.com/devfullcycle/imersao22/go-gateway/internal/web/handlers"
+	"github.com/devfullcycle/imersao22/go-gateway/internal/web/middleware"
 	"github.com/go-chi/chi/v5"
-	"github.com/joaodematejr/imersao22/go-gateway/internal/service"
-	"github.com/joaodematejr/imersao22/go-gateway/internal/web/handlers"
-	"github.com/joaodematejr/imersao22/go-gateway/internal/web/middleware"
 )
 
 type Server struct {
@@ -35,15 +35,10 @@ func (s *Server) ConfigureRoutes() {
 	s.router.Get("/accounts", accountHandler.Get)
 
 	s.router.Group(func(r chi.Router) {
-		r.Use(authMiddleware.Auth())
+		r.Use(authMiddleware.Authenticate)
 		s.router.Post("/invoice", invoiceHandler.Create)
 		s.router.Get("/invoice/{id}", invoiceHandler.GetByID)
 		s.router.Get("/invoice", invoiceHandler.ListByAccount)
-	})
-
-	s.router.Get("/health", func(w http.ResponseWriter, r *http.Request) {
-		w.WriteHeader(http.StatusOK)
-		w.Write([]byte("ok"))
 	})
 }
 

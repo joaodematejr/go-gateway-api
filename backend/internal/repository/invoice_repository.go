@@ -3,7 +3,7 @@ package repository
 import (
 	"database/sql"
 
-	"github.com/joaodematejr/imersao22/go-gateway/internal/domain"
+	"github.com/devfullcycle/imersao22/go-gateway/internal/domain"
 )
 
 type InvoiceRepository struct {
@@ -27,6 +27,7 @@ func (r *InvoiceRepository) Save(invoice *domain.Invoice) error {
 	return nil
 }
 
+// FindByID busca uma fatura pelo ID
 func (r *InvoiceRepository) FindByID(id string) (*domain.Invoice, error) {
 	var invoice domain.Invoice
 	err := r.db.QueryRow(`
@@ -56,6 +57,7 @@ func (r *InvoiceRepository) FindByID(id string) (*domain.Invoice, error) {
 	return &invoice, nil
 }
 
+// FindByAccountID busca todas as faturas de um determinado accountID
 func (r *InvoiceRepository) FindByAccountID(accountID string) ([]*domain.Invoice, error) {
 	rows, err := r.db.Query(`
 		SELECT id, account_id, amount, status, description, payment_type, card_last_digits, created_at, updated_at
@@ -84,6 +86,7 @@ func (r *InvoiceRepository) FindByAccountID(accountID string) ([]*domain.Invoice
 	return invoices, nil
 }
 
+// UpdateStatus atualiza o status de uma fatura
 func (r *InvoiceRepository) UpdateStatus(invoice *domain.Invoice) error {
 	rows, err := r.db.Exec(
 		"UPDATE invoices SET status = $1, updated_at = $2 WHERE id = $3",

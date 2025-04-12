@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/go-chi/chi"
-	"github.com/joaodematejr/imersao22/go-gateway/internal/domain"
-	"github.com/joaodematejr/imersao22/go-gateway/internal/dto"
-	"github.com/joaodematejr/imersao22/go-gateway/internal/service"
+	"github.com/devfullcycle/imersao22/go-gateway/internal/domain"
+	"github.com/devfullcycle/imersao22/go-gateway/internal/dto"
+	"github.com/devfullcycle/imersao22/go-gateway/internal/service"
+	"github.com/go-chi/chi/v5"
 )
 
 type InvoiceHandler struct {
@@ -68,7 +68,7 @@ func (h *InvoiceHandler) GetByID(w http.ResponseWriter, r *http.Request) {
 		case domain.ErrAccountNotFound:
 			http.Error(w, err.Error(), http.StatusUnauthorized)
 			return
-		case domain.ErrAccountAlreadyExists:
+		case domain.ErrUnauthorizedAccess:
 			http.Error(w, err.Error(), http.StatusForbidden)
 			return
 		default:
@@ -93,7 +93,7 @@ func (h *InvoiceHandler) ListByAccount(w http.ResponseWriter, r *http.Request) {
 	output, err := h.service.ListByAccountAPIKey(apiKey)
 	if err != nil {
 		switch err {
-		case domain.ErrAccountAlreadyExists:
+		case domain.ErrAccountNotFound:
 			http.Error(w, err.Error(), http.StatusUnauthorized)
 			return
 		default:
