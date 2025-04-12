@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"time"
 
-	"github.com/devfullcycle/imersao22/go-gateway/internal/domain"
+	"github.com/joaodematejr/imersao22/go-gateway/internal/domain"
 )
 
 // AccountRepository implementa operações de persistência para Account

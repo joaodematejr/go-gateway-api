@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/devfullcycle/imersao22/go-gateway/internal/domain/events"
+	"github.com/joaodematejr/imersao22/go-gateway/internal/domain/events"
 	"github.com/segmentio/kafka-go"
 )
 

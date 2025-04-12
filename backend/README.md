@@ -48,7 +48,7 @@ Funcionalidades pendentes:
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/devfullcycle/imersao22.git
+git clone https://github.com/joaodematejr/imersao22.git
 cd imersao22/go-gateway
 ```
 

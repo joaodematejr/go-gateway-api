@@ -29,7 +29,7 @@ O Gateway de Pagamento é um sistema distribuído composto por:
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/devfullcycle/imersao22.git
+git clone https://github.com/joaodematejr/imersao22.git
 cd imersao22/next-frontend
 ```
 

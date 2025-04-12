@@ -1,4 +1,4 @@
-module github.com/devfullcycle/imersao22/go-gateway
+module github.com/joaodematejr/imersao22/go-gateway
 
 go 1.24.1
 

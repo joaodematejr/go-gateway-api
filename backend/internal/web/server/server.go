@@ -3,9 +3,9 @@ package server
 import (
 	"net/http"
 
-	"github.com/devfullcycle/imersao22/go-gateway/internal/service"
-	"github.com/devfullcycle/imersao22/go-gateway/internal/web/handlers"
-	"github.com/devfullcycle/imersao22/go-gateway/internal/web/middleware"
+	"github.com/joaodematejr/imersao22/go-gateway/internal/service"
+	"github.com/joaodematejr/imersao22/go-gateway/internal/web/handlers"
+	"github.com/joaodematejr/imersao22/go-gateway/internal/web/middleware"
 	"github.com/go-chi/chi/v5"
 )
 

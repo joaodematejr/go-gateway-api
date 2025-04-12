@@ -3,7 +3,7 @@ package repository
 import (
 	"database/sql"
 
-	"github.com/devfullcycle/imersao22/go-gateway/internal/domain"
+	"github.com/joaodematejr/imersao22/go-gateway/internal/domain"
 )
 
 type InvoiceRepository struct {

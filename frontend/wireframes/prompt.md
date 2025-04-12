@@ -54,7 +54,7 @@ Este sistema atua como uma ponte entre comerciantes e instituições financeiras
 
 1. Clone o repositório
 ```bash
-git clone https://github.com/devfullcycle/imersao22/go-gateway.git
+git clone https://github.com/joaodematejr/imersao22/go-gateway.git
 cd go-gateway
 ```
 

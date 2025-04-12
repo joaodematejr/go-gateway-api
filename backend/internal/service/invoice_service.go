@@ -3,9 +3,9 @@ package service
 import (
 	"context"
 
-	"github.com/devfullcycle/imersao22/go-gateway/internal/domain"
-	"github.com/devfullcycle/imersao22/go-gateway/internal/domain/events"
-	"github.com/devfullcycle/imersao22/go-gateway/internal/dto"
+	"github.com/joaodematejr/imersao22/go-gateway/internal/domain"
+	"github.com/joaodematejr/imersao22/go-gateway/internal/domain/events"
+	"github.com/joaodematejr/imersao22/go-gateway/internal/dto"
 )
 
 type InvoiceService struct {
